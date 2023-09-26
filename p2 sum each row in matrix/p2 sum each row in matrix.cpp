@@ -5,7 +5,7 @@ using namespace std;
 
 int RandomNubers(int From, int To)
 {
-	return rand() % (To - From + 1) - From;
+	return rand() % (To - From + 1) + From;
 }
 
 void fill3X3MatrixWithRandomNumbers(int arr[3][3], int Rows, int Colos)
@@ -32,18 +32,23 @@ void printMatrix3X3(int arr[3][3], int Rows, int Colos)
 	cout << endl << endl;
 }
 
+int sumArrElements(int arr[3], int length)
+{
+	int sum = 0;
+	for (int i = 0; i < length; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
 void sumEachRowInMatrix(int arr[3][3], int Rows, int Colos)
 {
 	cout << "The Following is summtion each row in a 3x3 random matrix\n";
 	for (int i = 0; i < Rows; i++)
 	{
-		int sum = 0;
 		cout << "Sum " << i + 1 << " = ";
-		for (int x = 0; x < Colos; x++)
-		{
-			sum += arr[i][x];
-		}
-		cout <<sum<< endl;
+		cout << sumArrElements(arr[i], Colos) << endl;
 	}
 
 }
